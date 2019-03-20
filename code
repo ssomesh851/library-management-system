@@ -1,0 +1,41 @@
+class library:
+    def __init__(self,listofbooks):
+        self.availablebooks=listofbooks
+    def availablebooks(self):
+        print('the books which we have in our library:')
+        for book in self.availablebooks:
+            print(book)
+    def lend(self,request_book):
+        if request_book in self.availablebooks:
+            print('you have borrowed it')
+        else:
+            print('it is already has been lent to someother')
+
+class Student:
+    def request_book(self):
+        print('please let us know which book would you like to choose:')
+        self.book=input()
+        return self.book
+    def return_book(self):
+        print('please let us know which book would you like to return:')
+        self.book=input()
+        return self.book
+def main():
+    library=library(['The Power of your subconcious mind','the legend','the alcheimst'])
+    student=Student()
+    while True:
+        print("""==========library menu
+              1.Available Books
+              2.request a book
+              3.return a book
+              4.exit
+              """)
+        choice=input('please enter your choice:')
+        if choice == 1:
+            library.availablebooks()
+        if choice == 2:
+            library.lend(student.request_book())
+        if choice == 3:
+            library.addBook(student.return_book())
+        if choice == 4:
+            break
